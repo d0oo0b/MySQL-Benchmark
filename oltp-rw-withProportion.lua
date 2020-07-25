@@ -1,4 +1,6 @@
 #!/usr/bin/env sysbench
+-- Copyright (C) Shen Hong
+
 
 require("oltp_common_for_bityes")
 
