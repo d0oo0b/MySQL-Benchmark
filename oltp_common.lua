@@ -1,3 +1,5 @@
+-- Copyright (C) Shen Hong
+
 function init()
    assert(event ~= nil,
           "this script is meant to be included by other OLTP scripts and " ..
