@@ -1,6 +1,9 @@
-# 前提：
+# 关于本工具：
 需要预先安装sysbench 1.0.19
 将lua和shall脚本，放置在/usr/share/sysbench 目录中，如有文件冲突，请覆盖原来的文件。
+
+作为常用的MySQL基准测试工具，Sysbench有很多限制，例如无法自由设置读写比率，无法自动重建连接以及不友好的命令工具，这给基准测试带来了许多困难。 
+本工具通过Lua脚本增强了sysbench的功能:
 
 # 一、 新增OLTP按比例读写功能
 
@@ -18,9 +21,9 @@ w_times 写操作比重，默认值1。
 sysbench --mysql-host=[host name] --mysql-user=[user id] --mysql-password=[password] --mysql-db=[database] --table_size=1000000 --threads=36 --time=30000 --report-interval=1 --r_times=2 --w_times=3 oltp-rw-withProportion run
 ```
 
-# 二、 新增自动化测试脚本
+# 二、 新增自动化测试脚本，实现自动重连（测试failover等场景）
 
-举例：
+使用举例：
 ```
 # 准备数据
 bash /usr/share/sysbench/sysloop.sh
